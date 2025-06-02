@@ -35,7 +35,7 @@ def load_model():
         device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
         layers = [3, 32, 32, 32, 1]
         model = PINN(layers)
-        model.load_state_dict(torch.load('pinn_model_complete.pth', map_location=device, weights_only=True))
+        model.load_state_dict(torch.load('pinn_model_complete.pth', map_location=device))
         model.eval()
         return model, device
     except Exception as e:
